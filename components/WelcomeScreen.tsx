@@ -7,7 +7,7 @@ const WelcomeScreen = () => {
       <Image style={styles.logo} source={require("../assets/voting.png")} />
       <Text style={styles.titleText}>Welcome to DeVote Mobile!</Text>
       <View style={styles.buttonContainer}>
-        <Button color="#937DE2" title="Log In" onPress={() => {}} />
+        <Button color="#937DE2" title="Enter voting booth" onPress={() => {}} />
       </View>
     </View>
   );
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   buttonContainer: {
-    width: 100,
+    width: 200,
   },
   logo: {
     width: 100,
