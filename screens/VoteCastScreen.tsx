@@ -2,10 +2,12 @@ import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { WHITE_COLOR, BLACK_COLOR } from "../constants";
 
-const BoothsScreen = () => {
+const VoteCastScreen = () => {
   return (
     <View style={styles.container}>
-      <Text style={{...styles.baseText, ...styles.titleText}}>Admin Panel</Text>
+      <Text style={{ ...styles.titleText, ...styles.baseText }}>
+        Vote successfully cast!
+      </Text>
     </View>
   );
 };
@@ -28,4 +30,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BoothsScreen;
+export default VoteCastScreen;
