@@ -14,6 +14,7 @@ const BoothsScreen = ({ navigation }: any) => {
       <Text style={styles.baseText}>Enter password for voting event</Text>
       <View style={styles.inputAndButtonContainer}>
         <TextInput onChange={handleInputChange} style={styles.input} />
+
         <Button
           color={PRIMARY_COLOR}
           title="Join"
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
     display: "flex",
     backgroundColor: BLACK_COLOR,
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
   },
   baseText: {
@@ -42,6 +43,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     marginBottom: 50,
+    marginTop: 100,
   },
   input: {
     color: WHITE_COLOR,
