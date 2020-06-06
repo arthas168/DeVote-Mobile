@@ -3,7 +3,7 @@ import { StyleSheet, Text } from "react-native";
 import { WHITE_COLOR } from "../constants";
 
 const BoothsScreen = () => {
-  return <Text style={styles.baseText}>I am booth</Text>;
+  return <Text style={styles.baseText}>I am admin</Text>;
 };
 
 const styles = StyleSheet.create({

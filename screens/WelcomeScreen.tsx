@@ -17,6 +17,15 @@ const WelcomeScreen = ({ navigation }: any) => {
             });
           }}
         />
+        <Button
+          color={PRIMARY_COLOR}
+          title="Enter as Admin"
+          onPress={() => {
+            navigation.navigate({
+              routeName: "Admin Panel",
+            });
+          }}
+        />
       </View>
     </View>
   );
@@ -34,15 +43,18 @@ const styles = StyleSheet.create({
     color: WHITE_COLOR,
     fontWeight: "bold",
     fontSize: 20,
-    marginBottom: 30,
+    marginBottom: 80,
   },
   buttonContainer: {
     width: 200,
+    height: 100,
+    display: "flex",
+    justifyContent: "space-between",
   },
   logo: {
     width: 100,
     height: 100,
-    marginBottom: 50,
+    marginBottom: 10,
   },
 });
 
