@@ -17,7 +17,7 @@ const defaultStackNavOptions = {
 
 const MainNavigator = createStackNavigator(
   {
-    Welcome: WelcomeScreen,
+    Home: WelcomeScreen,
     "Enter Voting Booth": BoothsScreen,
     "Admin Panel": AdminScreen,
     Voting: VotingScreen,

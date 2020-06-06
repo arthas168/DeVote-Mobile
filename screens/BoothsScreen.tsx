@@ -5,15 +5,19 @@ import { WHITE_COLOR, BLACK_COLOR, PRIMARY_COLOR } from "../constants";
 const BoothsScreen = ({ navigation }: any) => {
   const [userInputPassword, setUserInputPassword] = useState("");
 
-  const handleInputChange = (e: any) => {
-    setUserInputPassword(e.target.value);
-  };
-
   return (
     <View style={styles.container}>
       <Text style={styles.baseText}>Enter password for voting event</Text>
       <View style={styles.inputAndButtonContainer}>
-        <TextInput onChange={handleInputChange} style={styles.input} />
+        <TextInput
+          onChangeText={(text) => {
+            if (text.length < 5) {
+              setUserInputPassword(text);
+            }
+          }}
+          value={userInputPassword}
+          style={styles.input}
+        />
 
         <Button
           color={PRIMARY_COLOR}

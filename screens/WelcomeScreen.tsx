@@ -10,7 +10,7 @@ const WelcomeScreen = ({ navigation }: any) => {
       <View style={styles.buttonContainer}>
         <Button
           color={PRIMARY_COLOR}
-          title="Enter voting booth"
+          title="Enter Voting Booth"
           onPress={() => {
             navigation.navigate({
               routeName: "Enter Voting Booth",
@@ -19,7 +19,7 @@ const WelcomeScreen = ({ navigation }: any) => {
         />
         <Button
           color={PRIMARY_COLOR}
-          title="Enter as Admin"
+          title="Admin Panel"
           onPress={() => {
             navigation.navigate({
               routeName: "Admin Panel",
