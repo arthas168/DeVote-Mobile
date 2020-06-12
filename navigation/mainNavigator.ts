@@ -4,7 +4,6 @@ import WelcomeScreen from "../screens/WelcomeScreen";
 import BoothsScreen from "../screens/BoothsScreen";
 import AdminScreen from "../screens/AdminScreen";
 import VotingScreen from "../screens/VotingScreen";
-import AuthenticationScreen from "../screens/AuthenticationScreen";
 
 import VoteCastScreen from "../screens/VoteCastScreen";
 
@@ -24,7 +23,6 @@ const MainNavigator = createStackNavigator(
     "Enter Voting Booth": BoothsScreen,
     "Admin Panel": AdminScreen,
     Voting: VotingScreen,
-    Authentication: AuthenticationScreen,
     "Vote Cast": VoteCastScreen,
   },
   {

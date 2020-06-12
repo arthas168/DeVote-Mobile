@@ -1,8 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import * as LocalAuthentication from "expo-local-authentication";
 import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
 import { WHITE_COLOR, BLACK_COLOR } from "../constants";
 
+interface AuthenticationConfigFrame {
+  hasHardwareAsync: boolean;
+  options: Array<Number>;
+  isEnrolled: boolean;
+}
+
+const initialAuthenticationConfig: AuthenticationConfigFrame = {
+  hasHardwareAsync: false,
+  options: [],
+  isEnrolled: false,
+};
+
 const BoothsScreen = ({ navigation }: any) => {
+  const [authenticationConfig, setAuthenticationConfig] = useState(
+    initialAuthenticationConfig
+  );
+
+  const authenticateLocal = async () => {
+    return await LocalAuthentication.authenticateAsync({});
+  };
+
+  useEffect(() => {
+    (async function getAuthenticationData() {
+      await loadAuthenticationData();
+    })();
+  }, []);
+
+  const loadAuthenticationData = async () => {
+    const hasHardwareForLocalAuthentication = await LocalAuthentication.hasHardwareAsync();
+    const optionsForAuthentication = await LocalAuthentication.supportedAuthenticationTypesAsync();
+    const isAuthenticationEnrolled = await LocalAuthentication.isEnrolledAsync();
+
+    setAuthenticationConfig({
+      hasHardwareAsync: hasHardwareForLocalAuthentication,
+      options: optionsForAuthentication,
+      isEnrolled: isAuthenticationEnrolled,
+    } as AuthenticationConfigFrame);
+  };
+
   const doubleCheckUserChoice = (chosenOption: string) => {
     return Alert.alert(
       `Voting for ${chosenOption}`,
@@ -13,9 +52,9 @@ const BoothsScreen = ({ navigation }: any) => {
           text: "Confirm",
           style: "default",
           onPress: () => {
-            navigation.navigate({
-              routeName: "Authentication",
-            });
+            (async function authenticate() {
+              await authenticateLocal();
+            })();
           },
         },
       ]
