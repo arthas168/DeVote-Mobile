@@ -14,7 +14,7 @@ const BoothsScreen = ({ navigation }: any) => {
           style: "default",
           onPress: () => {
             navigation.navigate({
-              routeName: "Vote Cast",
+              routeName: "Authentication",
             });
           },
         },
