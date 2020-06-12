@@ -51,7 +51,7 @@ const BoothsScreen = ({ navigation }: any) => {
     // Switch between commenting out this line and the line before for testing in Xcode simulator
     // without having to do local authentication
     navigation.navigate({
-      routeName: "Vote Cast",
+      routeName: "Facial Recognition",
     });
 
     // if (authenticationConfig.isEnrolled) {

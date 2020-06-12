@@ -3,6 +3,7 @@ import { createStackNavigator } from "react-navigation-stack";
 import WelcomeScreen from "../screens/WelcomeScreen";
 import BoothsScreen from "../screens/BoothsScreen";
 import AdminScreen from "../screens/AdminScreen";
+import FacialRecognitionScreen from "../screens/FacialRecognitionScreen";
 import VotingScreen from "../screens/VotingScreen";
 
 import VoteCastScreen from "../screens/VoteCastScreen";
@@ -23,6 +24,7 @@ const MainNavigator = createStackNavigator(
     "Enter Voting Booth": BoothsScreen,
     "Admin Panel": AdminScreen,
     Voting: VotingScreen,
+    "Facial Recognition": FacialRecognitionScreen,
     "Vote Cast": VoteCastScreen,
   },
   {
