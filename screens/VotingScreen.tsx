@@ -21,7 +21,12 @@ const BoothsScreen = ({ navigation }: any) => {
   );
 
   const authenticateLocal = async () => {
-    return await LocalAuthentication.authenticateAsync({});
+    return await LocalAuthentication.authenticateAsync({
+      promptMessage:
+        "You need to authenticate your vote with fingerprint recognition.",
+      fallbackLabel: "",
+      disableDeviceFallback: true,
+    });
   };
 
   useEffect(() => {
@@ -42,6 +47,39 @@ const BoothsScreen = ({ navigation }: any) => {
     } as AuthenticationConfigFrame);
   };
 
+  const startAuthenticationProcess = () => {
+    // Switch between commenting out this line and the line before for testing in Xcode simulator
+    // without having to do local authentication
+    navigation.navigate({
+      routeName: "Vote Cast",
+    });
+
+    // if (authenticationConfig.isEnrolled) {
+    //   (async function authenticate() {
+    //     const isAuthenticated = await authenticateLocal();
+    //     if (isAuthenticated) {
+    //       navigation.navigate({
+    //         routeName: "Vote Cast",
+    //       });
+    //     }
+    //   })();
+    // } else {
+    //   if (!authenticationConfig.hasHardwareAsync) {
+    //     Alert.alert(
+    //       `An error occurred!`,
+    //       "Sorry, your device does not support local authentication. Please use another device in order to vote.",
+    //       [{ text: "OK", style: "default" }]
+    //     );
+    //   } else {
+    //     Alert.alert(
+    //       `An error occurred!`,
+    //       "No saved fingerprints or FaceID. Please go to Settings and add biometric data.",
+    //       [{ text: "OK", style: "default" }]
+    //     );
+    //   }
+    // }
+  };
+
   const doubleCheckUserChoice = (chosenOption: string) => {
     return Alert.alert(
       `Voting for ${chosenOption}`,
@@ -52,9 +90,7 @@ const BoothsScreen = ({ navigation }: any) => {
           text: "Confirm",
           style: "default",
           onPress: () => {
-            (async function authenticate() {
-              await authenticateLocal();
-            })();
+            startAuthenticationProcess();
           },
         },
       ]
